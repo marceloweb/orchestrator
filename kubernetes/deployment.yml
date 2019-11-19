@@ -1,0 +1,23 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: web-deployment
+spec:
+  template:
+    metadata:
+      labels:
+        name: twitter-pod
+    spec:
+      containers:
+       - name: php
+         image: marceloweb/twitter:1.5
+         ports:
+           - containerPort: 80
+       - name: python
+         image: marceloweb/demo-flask:1.1
+         ports:
+           - containerPort: 5000
+       - name: java
+         image: marceloweb/spring_boot:1.0
+         ports:
+           - containerPort: 8080
